@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+
+
+.btn {
+    border: none;
+    background-color: $clr_white;
+    color: $clr_black;
+    font-weight: 500;
+    padding: 0 2.5em;
+
+    @include hover {
+        background-color: transparent;
+        outline: 1px solid $clr_white;;
+        color: $clr_white;
+    }
+
+    &__primary {
+        color: $bg_primary;
+        background-color: $bg_secondary;
+
+        @include hover {
+            outline-color: $bg_secondary;
+            color: $bg_secondary;
+        }
+    }    
+}

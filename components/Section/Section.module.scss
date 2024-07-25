@@ -1,0 +1,35 @@
+@use "../../scss/abstracts/" as *;
+
+$sectionMinHeight: 40vh;
+
+.sectionPrimary {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: $sectionMinHeight;
+    color: $txt_secondary;
+    background-color: $bg_primary;
+
+    .title {
+        font-size: clamp(2em, 0.6154rem + 3.8462vw, 4em);
+        margin: .75em 0 .5em 0;
+    }
+
+    .childs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.sectionSecondary {
+    @extend .sectionPrimary;
+
+    background-color: $bg_secondary;
+    color: $clr_black;
+}
+

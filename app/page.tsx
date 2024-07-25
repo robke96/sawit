@@ -1,95 +1,46 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button } from "@mantine/core";
+import styles from "./page.module.scss";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
+import { IconBooks, IconHeartFilled, IconShare } from "@tabler/icons-react";
+import Accordion from "@/components/Accordion/Accordion";
+
+type accordionMenuType = {
+  label: string,
+  description: string,
+}[]
+
+const accordionMenu: accordionMenuType = [
+  { label: "How do I log a movie?", description: `Simply search for the movie you watched, click on it, and select "Log as Watched." You can then rate and leave a comment.` },
+  { label: "Is SawIT free to use?", description: "Yes, SawIT is completely free to use." },
+  { label: "Can I share my movie diary with others?", description: "Yes, you can share your movie diary with friends through a unique link." },
+  { label: "Is ther a limit how many movies I can rate?", description: "No, there is no limit. You can rate as many movies as you like." },
+]
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className={styles.container}>
+      <div className={styles.firstSection}>
+        <h1 className={styles.title}>Start your<br />movie diary!</h1>
+        <Button size="lg" radius="lg" className={`${styles.button} btn btn__primary`}>Get started!</Button>
+        <div className={styles.bgImg}></div>
+      </div>
+      <Section title="Why SawIT" type="primary">
+        <div className={styles.cardBox}>
+          <Card icon={IconHeartFilled} title="Discover" description="Tell us what you like, and we'll recommend movies for you." />
+          <Card icon={IconBooks} title="Track" description="Keep a record of every movie you watch. Log your ratings, write reviews." />
+          <Card icon={IconShare} title="Share" description="Connect with friends and fellow movie lovers. Share your thoughts, reviews, and favorite films." />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </Section>
+      <Section title="Watch, Rate, Share!" type="secondary">
+          <p className={styles.sectionParagraph} >Your spot for tracking movies, giving them scores, and sharing your thoughts with friends.</p>
+      </Section>
+      <Section  title="Got questions?" type="primary">
+        <Accordion data={accordionMenu} />
+      </Section>
+      <Section title="Start Today!" type="secondary">
+        <Button size="lg" radius="lg" className={`${styles.button} btn`}>Sign Up!</Button>
+      </Section>
+    </div>
   );
 }

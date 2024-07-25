@@ -1,0 +1,26 @@
+@use "../../scss/abstracts/" as *;
+
+.footer {
+    width: 100%;
+    min-height: $footerHeight;
+    display: flex;
+    padding: 0 2em;
+    align-items: center;    
+    justify-content: center;
+    text-align: center;
+    background-color: $bg-primary;
+    
+    &__link {
+        text-decoration: none;
+        color: $txt-secondary;
+
+        &:hover {
+            color: $txt-primary;
+        }
+    }
+    
+    @include larger-than($mantine-breakpoint-xs) {
+        padding: 0 3em;
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,70 @@
+@use "/../scss/abstracts/" as *;
+
+.container {
+    scroll-behavior: smooth;
+
+    .firstSection {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include smaller-than($mantine-breakpoint-sm) {
+            min-height: 85vh;
+        }
+
+        .title {
+            text-align: center;
+            font-size: clamp(2.6rem, 0.9385rem + 4.6154vw, 5rem);
+            // border: 1px solid red;
+            color: $txt_secondary;
+            margin-bottom: .5em;
+        }
+
+        .button {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .bgImg {
+            background-image: url("/images/header_image.png");
+            background-repeat: no-repeat;
+            width: 100vw;
+            min-height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            box-shadow: inset 0 0 0 62em rgba(0,0,0,.45);
+        }
+    }
+
+    .cardBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+
+        &:last-child {
+            margin-bottom: 2em;
+        }
+
+        @include larger-than($mantine-breakpoint-md) {
+            flex-direction: row;
+        }
+    }
+
+    .sectionParagraph {
+        padding: 0 0 1.75em 0;
+        font-size: clamp(1.3em, 1.0154rem + 1.3462vw, 2.2em);
+        width: 100%;
+        font-weight: 600;
+        text-align: center;
+    
+        @include larger-than($mantine-breakpoint-md) {
+            width: 70%;
+        }
+    }
+}

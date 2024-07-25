@@ -1,0 +1,76 @@
+@use "../../scss/abstracts/" as *;
+
+.nav {
+    background-color: $bg_primary;
+    width: 100%;
+    min-height: $navHeight;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5em;
+    z-index: 20;
+    top: 0;
+    position: fixed;
+    
+    .imageLink {
+        scale: 0.85;
+    }
+    
+    .desktopContainer {
+        display: none;
+    }
+    
+    .mobileContainer {
+        position: absolute;
+        left: 0;
+        top: $navHeight;
+        width: 100%;
+        background-color: $bg_primary;
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s ease;
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &__item {
+            text-align: center;
+            color: $txt_secondary;
+            padding: 1.5em 0;
+            border-top: 1px solid $bg_secondary;
+
+            &:hover {
+                background-color: $bg_secondary;
+                color: $clr_black;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 1px solid $bg_secondary;
+        }
+    }
+
+    @include larger-than($mantine-breakpoint-lg) {
+        padding: 0 3.75em;
+
+        .hamburger {
+            display: none;
+        }
+
+        .desktopContainer {
+            display: block;
+
+            .button {
+                margin-right: 1.5em;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+        }
+    }
+}

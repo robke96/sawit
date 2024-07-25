@@ -1,0 +1,27 @@
+@use "../../scss/abstracts/" as *;
+
+.accordion {
+    max-width: 31.25em;
+    padding: 0 20px;
+    margin-bottom: 4em;
+    
+    .item {
+        border-color: #888;
+    }
+    
+    .control {
+        &:hover {
+            background-color: $txt-primary;
+        }
+    }
+
+    .label {
+        color: $txt-secondary;
+        text-align: left;
+    }
+    
+    .chevron {
+        color: $txt-secondary;
+        margin-left: 120px;
+    }
+}
